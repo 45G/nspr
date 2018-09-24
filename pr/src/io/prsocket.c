@@ -181,7 +181,7 @@ PRFileDesc *fd;
 		fd->secret->af = AF_INET;
 #endif
 	} else
-		_PR_MD_CLOSE_SOCKET(osfd);
+		/*_PR_MD_CLOSE_SOCKET(osfd)*/;
 	return(fd);
 }
 
@@ -787,9 +787,9 @@ static PRStatus PR_CALLBACK SocketClose(PRFileDesc *fd)
     }
 #endif
 
-		if (_PR_MD_CLOSE_SOCKET(fd->secret->md.osfd) < 0) {
-			return PR_FAILURE;
-		}
+//		if (_PR_MD_CLOSE_SOCKET(fd->secret->md.osfd) < 0) {
+//			return PR_FAILURE;
+//		}
 		fd->secret->state = _PR_FILEDESC_CLOSED;
 	}
 
